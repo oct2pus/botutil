@@ -1,4 +1,4 @@
-package botutil
+package etc
 
 import (
 	"strings"
@@ -24,7 +24,7 @@ func ToCenter(s string) string {
 	}
 }
 
-/ adds 'i' spaces to string 's'
+// adds 'i' amount of 'x' to string 's'
 func stringLoop(s string, x string, i int) string {
 
 	for len(s) < i {
@@ -33,18 +33,15 @@ func stringLoop(s string, x string, i int) string {
 	return s
 }
 
-
-
 // centers text, properly, but for some reason throws a hissy fit if i use
 // spaces
 // TODO: Fix this
 func ToCenterAlt(s string, i int) string {
 	if i > len(s) {
 		o := i - len(s)
-		ns := spaceLoop("", " ", o) + s
+		ns := stringLoop("", " ", o) + s
 
 		return ns
 	}
 	return s
 }
-*/
