@@ -3,7 +3,7 @@ package parse
 import (
 	"regexp"
 
-	"github.com/oct2pus/botutil/util/logging"
+	"github.com/oct2pus/botutil/logging"
 )
 
 func CheckFormatted(input string, rgxp string) bool {
