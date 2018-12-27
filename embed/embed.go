@@ -2,7 +2,10 @@ package embed
 
 import "github.com/bwmarrin/discordgo"
 
-func CreditsEmbed(botName string, artist string, artist2 string, artist3 string) *discordgo.MessageEmbed {
+// This function provides credits for my bots to people whose art I use,
+// the library, and myself.
+func CreditsEmbed(botName string, artist string, artist2 string,
+	artist3 string, color int) *discordgo.MessageEmbed {
 
 	thanks := "Avatar by " + artist + "\n"
 
@@ -14,7 +17,7 @@ func CreditsEmbed(botName string, artist string, artist2 string, artist3 string)
 	thanks += "Emojis by " + artist3
 
 	embed := &discordgo.MessageEmbed{
-		Color: 0x005682,
+		Color: color,
 		Type:  "About",
 		Fields: []*discordgo.MessageEmbedField{
 			&discordgo.MessageEmbedField{
@@ -46,5 +49,27 @@ func CreditsEmbed(botName string, artist string, artist2 string, artist3 string)
 		},
 	}
 
+	return embed
+}
+
+// ImageEmbed returns a single image, a url and a footer text is included, leave
+// url blank to just use the image url
+func ImageEmbed(title string, url string, image string,
+	footer string) *discordgo.MessageEmbed {
+
+	if url == "" {
+		url = image
+	}
+
+	embed := &discordgo.MessageEmbed{
+		Title: title,
+		URL:   url,
+		Image: &discordgo.MessageEmbedImage{
+			URL: image,
+		},
+		Footer: &discordgo.MessageEmbedFooter{
+			Text: footer,
+		},
+	}
 	return embed
 }
