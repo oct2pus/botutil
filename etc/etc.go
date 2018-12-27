@@ -57,3 +57,17 @@ func IsMentioned(users []*discordgo.User, self *discordgo.User) bool {
 	}
 	return false
 }
+
+// ANG stands for Arbitrary Number Generator
+// it converts a string into a rune slice, adds together their value, and then
+// %s the result
+func ANG(input string, mod int32) int32 {
+	asRuneSlice := []rune(input)
+	var result int32
+
+	for _, ele := range asRuneSlice {
+		result += ele
+	}
+
+	return result % mod
+}
