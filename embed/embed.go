@@ -23,7 +23,7 @@ func CreditsEmbed(botName string, artist string, artist2 string,
 			&discordgo.MessageEmbedField{
 				Name: botName,
 				Value: "Created by \\🐙\\🐙#0413" +
-					"( http://oct2pus.tumblr.com/ )\n" +
+					" ( http://oct2pus.tumblr.com/ )\n" +
 					botName + " uses the 'discordgo' library\n" +
 					"( https://github.com/bwmarrin/discordgo/ )",
 				Inline: false,
@@ -37,7 +37,7 @@ func CreditsEmbed(botName string, artist string, artist2 string,
 				Name: "Disclaimer",
 				Value: botName + " uses **Mutant Standard Emoji**" +
 					" ( https://mutant.tech )\n**Mutant Standard Emoji** are " +
-					" licensed under CC-BY-NC-SA 4.0 " +
+					" licensed under CC-BY-NC-SA 4.0\n" +
 					"( https://creativecommons.org/licenses/by-nc-sa/4.0/ )",
 				Inline: false,
 			},
@@ -55,7 +55,7 @@ func CreditsEmbed(botName string, artist string, artist2 string,
 // ImageEmbed returns a single image, a url and a footer text is included, leave
 // url blank to just use the image url
 func ImageEmbed(title string, url string, image string,
-	footer string) *discordgo.MessageEmbed {
+	footer string, color int) *discordgo.MessageEmbed {
 
 	if url == "" {
 		url = image
@@ -63,6 +63,7 @@ func ImageEmbed(title string, url string, image string,
 
 	embed := &discordgo.MessageEmbed{
 		Title: title,
+		Color: color,
 		URL:   url,
 		Image: &discordgo.MessageEmbedImage{
 			URL: image,
